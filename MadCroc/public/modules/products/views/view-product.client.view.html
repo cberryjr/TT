@@ -1,0 +1,63 @@
+<section data-ng-controller="ProductsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="product.productName"></h1>
+	</div>
+    <div class="row-fluid">
+        <div class="span8">
+            <div><h4>Part Number</h4></div>
+            <div>{{product.partNumber}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>Manufacturer Name</h4></div>
+            <div>{{product.manufacturerName}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>Short Description</h4></div>
+            <div>{{product.shortDescription}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>List Price</h4></div>
+            <div>{{product.listPrice}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>Weight</h4></div>
+            <div>{{product.weight}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>Width</h4></div>
+            <div>{{product.width}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>Height</h4></div>
+            <div>{{product.height}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>Featured</h4></div>
+            <div>{{product.featured}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>Discontinued</h4></div>
+            <div>{{product.discontinued}}</div>
+        </div>
+        <div class="span8">
+            <div><h4>Inventoried</h4></div>
+            <div>{{product.inventoried}}</div>
+        </div>
+    </div>
+	<div class="pull-right" data-ng-show="authentication.user._id == product.user._id">
+		<a class="btn btn-primary" href="/#!/products/{{product._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Created on
+			<span data-ng-bind="product.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="product.user.displayName"></span>
+		</em>
+	</small>
+</section>

@@ -1,0 +1,18 @@
+<section data-ng-controller="ProductsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Products</h1>
+    </div>
+    <form class="form-control-static">Filter Results
+        <input ng-model="search.$" type="text"
+               placeholder="Filter by" autofocus>
+    </form>
+    <div class="list-group">
+        <a data-ng-repeat="product in products | filter:search" data-ng-href="#!/products/{{product._id}}" class="list-group-item">
+			<h4 class="list-group-item-heading" data-ng-bind="product.productName"></h4>
+            <h6 class="list-group-item-heading" data-ng-bind="product.shortDescription"></h6>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!products.$resolved || products.length">
+    	No Products yet, why don't you <a href="/#!/products/create">create one</a>?
+    </div>
+</section>
